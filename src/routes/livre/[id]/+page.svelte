@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { user } from '$lib/stores/auth.js';
 	import { booklistStatus, updateBookStatus, getBookStatus } from '$lib/stores/booklistStore.js';
+	import { API_URL } from '$lib/config.js';
 
 	let inBooklist = $state(false);
 	let toRead = $state(true);

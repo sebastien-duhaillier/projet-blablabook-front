@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { user } from '$lib/stores/auth.js';
 	import { booklistStatus, updateBookStatus, getBookStatus } from '$lib/stores/booklistStore.js';
+	import { API_URL } from '$lib/config.js';
 
 	let loadingBooks = $state(new Set());
 

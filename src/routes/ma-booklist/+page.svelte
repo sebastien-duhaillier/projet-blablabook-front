@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { updateBookStatus } from '$lib/stores/booklistStore.js';
+	import { API_URL } from '$lib/config.js';
 
 	let booklist = [];
 	let totalBooks = 0;
