@@ -1,9 +1,12 @@
+import { env } from '$env/dynamic/public';
+
 export async function load({ fetch, url }) {
+  const API_URL = env.PUBLIC_API_URL || 'http://localhost:3000';
   const page = url.searchParams.get('page') || '1';
   const limit = '10';
   const search = url.searchParams.get('search') || '';
 
-  let apiUrl = `http://localhost:3000/catalog?page=${page}&limit=${limit}`;
+  let apiUrl = `${API_URL}/catalog?page=${page}&limit=${limit}`;
   if (search) {
     apiUrl += `&search=${encodeURIComponent(search)}`;
   }
