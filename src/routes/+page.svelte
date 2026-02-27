@@ -1,10 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
-	let animated = false;
+	let animated = '';
 	onMount(() => {
 		setTimeout(() => {
-			animated = true;
-		}, 500); // délai de 500 ms
+			animated = 'animated';
+		}, 500);
 	});
 	let { data } = $props();
 </script>
@@ -13,7 +13,7 @@
 	<h1>Notre sélection</h1>
 
 	<div class="carousel-container">
-		<div class="carousel-track" class:animated={animated}>
+		<div class="carousel-track {animated}">
 			{#each data.book.concat(data.book) as book}
 				<a href={`/livre/${book.id}`} class="slide">
 					<img src={book.cover} alt={book.title} />
@@ -54,7 +54,6 @@
 		display: flex;
 		width: 100%;
 		gap: 1rem;
-		/* animation retirée ici */
 	}
 	.carousel-track.animated {
 		animation: scroll 110s linear infinite;
