@@ -9,7 +9,7 @@
 	{#if data.book && data.book.length > 0}
 		<div class="carousel-container">
 			<div class="carousel-track">
-				{#each data.book.concat(data.book).concat(data.book).concat(data.book).concat(data.book).concat(data.book) as book}
+				{#each data.book.concat(data.book) as book}
 					<a href={`/livre/${book.id}`} class="slide">
 						<img src={book.cover} alt={book.title} />
 					</a>
