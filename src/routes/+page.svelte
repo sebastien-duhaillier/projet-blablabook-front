@@ -51,10 +51,11 @@
 	}
 
 	.slide img {
-		width: 180px;
-		height: 260px;
+		width: 220px;
+		height: 320px;
 		object-fit: cover;
 		border-radius: 8px;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 	}
 
 	@keyframes scroll {
