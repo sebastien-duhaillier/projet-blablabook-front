@@ -1,11 +1,11 @@
 <script>
-	import CarouselSwiper from '$lib/components/CarouselSwiper.svelte';
+	import CarouselSplide from '$lib/components/CarouselSplide.svelte';
 	let { data } = $props();
 </script>
 
 <div class="home-content">
 	<h1>Notre sélection</h1>
-	<CarouselSwiper books={data.book} />
+	<CarouselSplide books={data.book} />
 
 	<a href="/catalogue"><button class="catalog">Voir le catalogue</button></a>
 
