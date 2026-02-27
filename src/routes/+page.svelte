@@ -1,6 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	let { data } = $props();
+
+	function handleClick(book) {
+		goto(`/livre/${book.id}`);
+	}
 
 	onMount(() => {
 		if (!localStorage.getItem('carouselRefreshed')) {
@@ -16,9 +21,9 @@
 	<div class="carousel-container">
 		<div class="carousel-track">
 			{#each data.book.concat(data.book) as book}
-				<a href={`/livre/${book.id}`} class="slide">
+				<div class="slide" on:click={() => handleClick(book)} style="cursor:pointer;">
 					<img src={book.cover} alt={book.title} />
-				</a>
+				</div>
 			{/each}
 		</div>
 	</div>
