@@ -9,7 +9,7 @@
 	{#if data.book && data.book.length > 0}
 		<div class="carousel-container">
 			<div class="carousel-track">
-				{#each data.book.concat(data.book) as book}
+				{#each data.book.concat(data.book).concat(data.book).concat(data.book).concat(data.book).concat(data.book) as book}
 					<a href={`/livre/${book.id}`} class="slide">
 						<img src={book.cover} alt={book.title} />
 					</a>
@@ -42,7 +42,7 @@
 	}
 
 	.carousel-container {
-		width: 900px;
+		width: 100vw;
 		overflow: hidden;
 		background-color: var(--couleur-bleu-vert);
 		padding: 1rem;
@@ -56,7 +56,7 @@
 	}
 
 	.slide img {
-		width: 380px;
+		width: 900px;
 		height: 380px;
 		object-fit: cover;
 		border-radius: 8px;
