@@ -1,24 +1,19 @@
 <script>
 	let { data } = $props();
-	console.log('Livres chargés pour le carousel:', data.book);
 </script>
 
 <div class="home-content">
 	<h1>Notre sélection</h1>
 
-	{#if data.book && data.book.length > 0}
-		<div class="carousel-container">
-			<div class="carousel-track">
-				{#each data.book.concat(data.book).concat(data.book).concat(data.book) as book}
-					<a href={`/livre/${book.id}`} class="slide">
-						<img src={book.cover} alt={book.title} />
-					</a>
-				{/each}
-			</div>
+	<div class="carousel-container">
+		<div class="carousel-track">
+			{#each data.book.concat(data.book) as book}
+				<a href={`/livre/${book.id}`} class="slide">
+					<img src={book.cover} alt={book.title} />
+				</a>
+			{/each}
 		</div>
-	{:else}
-		<p style="color: red; text-align: center;">Aucun livre à afficher dans le carousel.</p>
-	{/if}
+	</div>
 
 	<a href="/catalogue"><button class="catalog">Voir le catalogue</button></a>
 
@@ -52,15 +47,7 @@
 		display: flex;
 		width: 100%;
 		gap: 1rem;
-		animation: scroll 60s linear infinite;
-	}
-
-	.slide img {
-		width: 900px;
-		height: 380px;
-		object-fit: cover;
-		border-radius: 8px;
-		box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+		animation: scroll 110s linear infinite;
 	}
 
 	@keyframes scroll {
@@ -72,13 +59,86 @@
 		}
 	}
 
+	.slide {
+		flex: 0 0 auto;
+		width: 220px;
+	}
+
+	.slide img {
+		width: 100%;
+		height: 350px;
+		object-fit: cover;
+		border-radius: 8px;
+		transition: transform 0.3s ease;
+	}
+
+	.slide img:hover {
+		transform: scale(1.05);
+	}
+
+	/* Mobile */
+	@media (max-width: 767px) {
+		.slide {
+			width: 160px;
+		}
+
+		.slide img {
+			height: 240px;
+		}
+	}
+
+	/* Tablette */
+	@media (min-width: 768px) and (max-width: 1023px) {
+		.slide {
+			width: 180px;
+		}
+
+		.slide img {
+			height: 300px;
+		}
+	}
+
+	/* Desktop */
+	@media (min-width: 1024px) {
+		.slide {
+			width: 220px;
+		}
+
+		.slide img {
+			height: 350px;
+		}
+	}
+
 	.catalog {
-		margin-top: 2rem;
+		background-color: var(--couleur-vieux-rose);
+		border-radius: 30px;
+		color: var(--couleur-beige-clair);
+		font-weight: bold;
+		border: none;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+		padding: 0.75rem 2rem;
+		cursor: pointer;
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
+		margin: 0.5rem 0;
+	}
+
+	.catalog:hover {
+		transform: scale(1.05);
+		box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
 	}
 
 	.about {
-		margin-top: 2rem;
-		max-width: 600px;
-		text-align: center;
+		background-color: var(--couleur-beige-clair);
+		border-radius: 30px;
+		padding: 1.5rem;
+		width: 90%;
+		max-width: 900px;
+		text-align: justify;
+		font-family: var(--font-global);
+		line-height: 1.6;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		margin-bottom: 3rem;
 	}
 </style>
