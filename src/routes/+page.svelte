@@ -1,11 +1,19 @@
 <script>
-	import CarouselSplide from '$lib/components/CarouselSplide.svelte';
 	let { data } = $props();
 </script>
 
 <div class="home-content">
 	<h1>Notre sélection</h1>
-	<CarouselSplide books={data.book} />
+
+	<div class="carousel-container">
+		<div class="carousel-track">
+			{#each data.book.concat(data.book) as book}
+				<a href={`/livre/${book.id}`} class="slide">
+					<img src={book.cover} alt={book.title} />
+				</a>
+			{/each}
+		</div>
+	</div>
 
 	<a href="/catalogue"><button class="catalog">Voir le catalogue</button></a>
 
@@ -26,6 +34,29 @@
 		align-items: center;
 		gap: 1rem;
 		padding: 1rem;
+	}
+
+	.carousel-container {
+		width: 100vw;
+		overflow: hidden;
+		background-color: var(--couleur-bleu-vert);
+		padding: 1rem;
+	}
+
+	.carousel-track {
+		display: flex;
+		width: 100%;
+		gap: 1rem;
+		animation: scroll 110s linear infinite;
+	}
+
+	@keyframes scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
 	}
 
 	.catalog {
