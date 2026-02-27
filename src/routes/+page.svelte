@@ -1,9 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
-	let animated = '';
+	let animated = false;
 	onMount(() => {
 		setTimeout(() => {
-			animated = 'animated';
+			animated = true;
 		}, 500);
 	});
 	let { data } = $props();
@@ -13,7 +13,7 @@
 	<h1>Notre sélection</h1>
 
 	<div class="carousel-container">
-		<div class="carousel-track {animated}">
+		<div class="carousel-track" class:animated={animated}>
 			{#each data.book.concat(data.book) as book}
 				<a href={`/livre/${book.id}`} class="slide">
 					<img src={book.cover} alt={book.title} />
