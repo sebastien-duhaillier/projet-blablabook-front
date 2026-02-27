@@ -50,6 +50,13 @@
 		animation: scroll 110s linear infinite;
 	}
 
+	.slide img {
+		width: 180px;
+		height: 260px;
+		object-fit: cover;
+		border-radius: 8px;
+	}
+
 	@keyframes scroll {
 		from {
 			transform: translateX(0);
