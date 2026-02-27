@@ -7,7 +7,7 @@
 
 	<div class="carousel-container">
 		<div class="carousel-track">
-			{#each data.book.concat(data.book).concat(data.book) as book}
+			{#each data.book.concat(data.book).concat(data.book).concat(data.book).concat(data.book).concat(data.book) as book}
 				<a href={`/livre/${book.id}`} class="slide">
 					<img src={book.cover} alt={book.title} />
 				</a>
@@ -47,12 +47,12 @@
 		display: flex;
 		width: 100%;
 		gap: 1rem;
-		animation: scroll 110s linear infinite;
+		animation: scroll 60s linear infinite;
 	}
 
 	.slide img {
-		width: 260px;
-		height: 380px;
+		width: 340px;
+		height: 220px;
 		object-fit: cover;
 		border-radius: 8px;
 		box-shadow: 0 2px 8px rgba(0,0,0,0.12);
