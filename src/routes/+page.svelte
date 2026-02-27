@@ -1,19 +1,24 @@
 <script>
 	let { data } = $props();
+	console.log('Livres chargés pour le carousel:', data.book);
 </script>
 
 <div class="home-content">
 	<h1>Notre sélection</h1>
 
-	<div class="carousel-container">
-		<div class="carousel-track">
-			{#each data.book.concat(data.book).concat(data.book).concat(data.book).concat(data.book).concat(data.book) as book}
-				<a href={`/livre/${book.id}`} class="slide">
-					<img src={book.cover} alt={book.title} />
-				</a>
-			{/each}
+	{#if data.book && data.book.length > 0}
+		<div class="carousel-container">
+			<div class="carousel-track">
+				{#each data.book.concat(data.book).concat(data.book).concat(data.book).concat(data.book).concat(data.book) as book}
+					<a href={`/livre/${book.id}`} class="slide">
+						<img src={book.cover} alt={book.title} />
+					</a>
+				{/each}
+			</div>
 		</div>
-	</div>
+	{:else}
+		<p style="color: red; text-align: center;">Aucun livre à afficher dans le carousel.</p>
+	{/if}
 
 	<a href="/catalogue"><button class="catalog">Voir le catalogue</button></a>
 
