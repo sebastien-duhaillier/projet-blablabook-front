@@ -56,7 +56,7 @@
 	}
 
 	.slide img {
-		width: 260px;
+		width: 380px;
 		height: 380px;
 		object-fit: cover;
 		border-radius: 8px;
