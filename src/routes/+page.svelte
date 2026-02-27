@@ -1,19 +1,20 @@
 <script>
 	import { onMount } from 'svelte';
-	let animated = false;
-	onMount(() => {
-		setTimeout(() => {
-			animated = true;
-		}, 500);
-	});
 	let { data } = $props();
+
+	onMount(() => {
+		if (!localStorage.getItem('carouselRefreshed')) {
+			localStorage.setItem('carouselRefreshed', 'true');
+			location.reload();
+		}
+	});
 </script>
 
 <div class="home-content">
 	<h1>Notre sélection</h1>
 
 	<div class="carousel-container">
-		<div class="carousel-track" class:animated={animated}>
+		<div class="carousel-track">
 			{#each data.book.concat(data.book) as book}
 				<a href={`/livre/${book.id}`} class="slide">
 					<img src={book.cover} alt={book.title} />
@@ -54,10 +55,9 @@
 		display: flex;
 		width: 100%;
 		gap: 1rem;
-	}
-	.carousel-track.animated {
 		animation: scroll 110s linear infinite;
 	}
+
 	@keyframes scroll {
 		from {
 			transform: translateX(0);
