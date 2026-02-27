@@ -42,7 +42,7 @@
 	}
 
 	.carousel-container {
-		width: 100vw;
+		width: 900px;
 		overflow: hidden;
 		background-color: var(--couleur-bleu-vert);
 		padding: 1rem;
