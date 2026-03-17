@@ -140,10 +140,10 @@
 			<input type="email" name="email" id="emailSignup" required />
 
 			<label for="passwordSignup">Mot de passe :</label>
-			<input type="password" name="password" id="passwordSignup" required minlength="6" />
+			<input type="password" name="password" id="passwordSignup" required minlength="8" />
 
 			<label for="confirm">Confirmation du mot de passe :</label>
-			<input type="password" name="confirm" id="confirm" required minlength="6" />
+			<input type="password" name="confirm" id="confirm" required minlength="8" />
 
 			<label for="avatar">Avatar :</label>
 			<input type="file" name="avatar" id="avatar" accept="image/*" />
